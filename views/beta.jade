@@ -1,0 +1,17 @@
+extends layout
+
+block content
+    div.container
+        div.row
+            div.col-sm-12
+                h2 Welcome #{user.firstName}. Check your details below
+                p btw the taskmanager is a clientside react app, it's not working properly though
+                #app
+                #user
+                    div.signup-wall
+                        ul.user-details
+                            li Username ---> #{user.username}
+                            li Email    ---> #{user.email}
+                            li First Name ---> #{user.firstName}
+                            li Last Name ---> #{user.lastName}
+                    a(href='/signout', class='text-center new-account') Sign Out
