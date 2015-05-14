@@ -4,7 +4,7 @@ var request = require('request-json');
 // if we use environments, check it here
 //var url = (process.env.ENV === 'STAGE') ? 'http://localhost:63333/' : 'http://localhost:63334/';
 
-var url = 'http://localhost:63333/';
+var url = 'http://localhost:61475/';
 var smBackend = request.createClient(url);
 
 var isAuthenticated = function (req, res, next) {
@@ -56,8 +56,8 @@ module.exports = function(passport){
 	});
 
     // Don't forget me! isAuthenticated,
-    router.get('/api/todos', isAuthenticated, function(req, res) {
-        smBackend.get('todos.json', function(err, backendResponse, body) {
+    router.get('/api/:id', isAuthenticated, function(req, res) {
+        smBackend.get(req.params.id + '.json', function(err, backendResponse, body) {
             return res.json(body);
             //return console.log(res);
         }).on('error', function() {
