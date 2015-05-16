@@ -56,7 +56,8 @@ module.exports = function(passport){
 	});
 
     // Don't forget me! isAuthenticated,
-    router.get('/api/:id', isAuthenticated, function(req, res) {
+    router.get('/api/:id', function(req, res) {
+        console.log()
         smBackend.get(req.params.id + '.json', function(err, backendResponse, body) {
             return res.json(body);
             //return console.log(res);
